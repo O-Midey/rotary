@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nav {
+  background-color: #12a8ac;
+  width: 100%;
+}
+.nav > a {
+  color: white;
+}
+
+.info {
+  background-color: #fac47640;
+  border-radius: 4px;
+}
+
+.option-box {
+  background-color: #e8e8e8;
+  padding: 30px;
+  border-radius: 5px;
+  position: relative;
+  transition: all 0.3s ease; /* Smooth transition for animation */
+}
+
+.option-box:hover {
+  background-color: #fac47640;
+}
+
+.option-box.clicked {
+  background-color: #fac476;
+}
+
+.option-box.clicked:after {
+  content: "";
+  position: absolute;
+  bottom: -25px; /* Adjust the distance of the arrow from the bottom of the box */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-top: 25px solid #fac476;
+  border-left: 25px solid transparent; /* Adjust the size of the triangle */
+  border-right: 25px solid transparent; /* Adjust the size of the triangle */
+}
+
+.form-field {
+  background-color: #f0f0f0;
+  padding-bottom: 15px;
+}
+
+.next-button {
+  display: block;
+  background-color: #12a8ac;
+  border-radius: 25px;
+  padding: 12px 0;
+  color: white;
+}
+
+.product-details {
+  border: 1px solid rgb(207, 202, 202);
+  border-radius: 25px;
+  background-color: white;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.product-details > * {
+  margin-bottom: 20px;
+}
+
+.paying-for {
+  background-color: #fbf9f1;
+  border: 1px solid black;
+  border-radius: 25px;
+}
+
+button.bordered {
+  background-color: #fbf9f1;
+}
+
+.order-summary {
+  padding: 10px 15px;
+  border-radius: 0.9375rem;
+  background: linear-gradient(180deg, #17478f -123.81%, #fff 99.97%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.order-summary > * {
+  padding-top: 15px;
+}
+
+.flex-apart {
+  padding-bottom: 4px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
+}
+
+button.pay-now {
+  border-radius: 1.625rem;
+  background: #ffcb05;
+  padding: 15px !important;
+  margin-top: 15px;
+}
+
+.neg-margin {
+  margin-top: -16px;
+  border-radius: 0.9375rem;
+  border: 1px solid #d6d6d6;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  padding-top: 40px;
+}
+
+.payment-confirmed {
+  padding: 5% 0;
+}
+
+.payment-confirmed > * {
+  padding-top: 15px;
+}
+
+/**************-----media queries--------**************/
+
+@media screen and (max-width: 768px) {
+  .option-box.clicked:after {
+    display: none;
+  }
+
+  .next-button {
+    width: 100%;
+  }
+
+  .product-details {
+    border: none;
+    border-radius: 0;
+  }
+}
