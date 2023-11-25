@@ -73,11 +73,7 @@ export const GroupForm = (props) => {
         break;
     }
   };
-  // useEffect(() => {
-  //   // Triggered when registrationData changes
-  //   props.setData(registrationData);
-  //   console.log("Updated registrationData:", registrationData);
-  // }, [registrationData, props]);
+
   const handleSubmit = () => {
     const namesRegistered = [
       participant1?.fullName,
