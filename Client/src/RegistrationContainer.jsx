@@ -2,7 +2,7 @@ import { useState } from "react";
 import { IndividualForm } from "./IndividualForm";
 import { GroupForm } from "./GroupForm";
 
-export const RegistrationContainer = () => {
+export const RegistrationContainer = (props) => {
   const [groupClicked, setGroupClicked] = useState(false);
   const [individualClicked, setIndividualClicked] = useState(false);
 
@@ -53,8 +53,22 @@ export const RegistrationContainer = () => {
       </div>
 
       <div className="bottom-arrow"></div>
-      {individualClicked && <IndividualForm />}
-      {groupClicked && <GroupForm />}
+      {individualClicked && (
+        <IndividualForm
+          submitted={props.submitted}
+          setSubmitted={props.setSubmitted}
+          data={props.data}
+          setData={props.setData}
+        />
+      )}
+      {groupClicked && (
+        <GroupForm
+          submitted={props.submitted}
+          setSubmitted={props.setSubmitted}
+          data={props.data}
+          setData={props.setData}
+        />
+      )}
     </>
   );
 };

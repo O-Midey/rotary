@@ -2,11 +2,9 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../Models/User");
-const connectDB = require("../db");
+const { connectDB } = require("../db");
 
 connectDB();
-
-// Handle Paystack payment callback
 router.post("/paystack/callback", async (req, res) => {
   try {
     // Extract user data from Paystack callback

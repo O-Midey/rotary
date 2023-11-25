@@ -1,11 +1,14 @@
 // index.js
 const express = require("express");
-const paymentRoute = require("./routes/payment");
+const paymentRoute = require("./Routes/Payments");
+const cors = require("cors");
 
 const app = express();
 
 // Middleware to parse JSON
 app.use(express.json());
+
+app.use(cors());
 
 // Use payment route
 app.use("/api", paymentRoute);

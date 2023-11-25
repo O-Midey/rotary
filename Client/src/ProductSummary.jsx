@@ -1,4 +1,16 @@
-export const ProductSummary = () => {
+import { PayNowButton } from "./PayNowButton";
+
+export const ProductSummary = (props) => {
+  console.log(props);
+
+  const groupNames =
+    props.data.names &&
+    props.data.names.map((name, index) => (
+      <div key={index}>
+        {name} <br />
+      </div>
+    ));
+
   return (
     <>
       <div className="p-4 form-field py-12 md:px-24 ">
@@ -10,12 +22,15 @@ export const ProductSummary = () => {
               <h1>Product</h1>
             </div>
             <p className="">
-              [Product Name] for <br /> [Name of buyer]
+              {props.data.product} for <br /> {props.data.email}
             </p>
             <div className="md:flex items-start gap-4">
               <div className="paying-for p-4 md:min-w-[300px] md:w-full">
-                Paying For: <br />
-                [Registered Names]
+                Paying For:{" "}
+                {props.data.product === "Group Registration"
+                  ? groupNames
+                  : props.data.email}
+                <br />
               </div>
               <button className="border border-slate-400 px-8 py-2 mt-3 md:mt-0 block w-full md:max-w-[300px] rounded-[15px]">
                 Cancel/Modify
@@ -31,17 +46,17 @@ export const ProductSummary = () => {
               </div>
               <div className="flex-apart">
                 <p>Subtotal</p>
-                <p>N113,000</p>
+                <p>{props.data.price}</p>
               </div>
               <div className="flex-apart">
                 <p>Transaction Fee</p>
                 <p>N1,822.35</p>
               </div>
               <p className="text-center">Total</p>
-              <p className="text-center text-3xl">N114,823</p>
-              <button className="pay-now w-full mx-auto text-center text-bold">
-                Pay Now
-              </button>
+              <p className="text-center text-3xl">
+                {parseInt(props.data.price) + 1800}
+              </p>
+              <PayNowButton data={props.data} />
             </div>
             <div></div>
           </div>
